@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.CleanArchitectureMVVM2021" parent="android:Theme.Material.Light.NoActionBar">
+    Theme.MaterialComponents.Light.DarkActionBar
+    <style name="Theme.CleanArchitectureMVVM2021" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
+    </style>
+
+    <style name="Theme.CleanArchitectureMVVM2021.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>

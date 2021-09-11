@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CleanArchitectureMVVM-2021</string>
+    <string name="title_home">홈</string>
+    <string name="title_setting">설정</string>
 </resources>
