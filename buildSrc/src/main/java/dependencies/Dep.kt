@@ -38,11 +38,13 @@ object Dep {
     }
 
     object Kotlin {
-        const val version = "1.5.21"
+        const val version = "1.5.30"
     }
 
     object Dagger {
-
+        const val hiltVersion = "2.38.1"
+        const val hiltAndroid = "com.google.dagger:hilt-android:$hiltVersion"
+        const val hiltCompiler = "com.google.dagger:hilt-compiler:$hiltVersion"
     }
 
     object Accompanist {

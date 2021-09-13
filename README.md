@@ -16,4 +16,23 @@
 - Kotlin Version : 1.5.21
 
 ## 참고
+
+### [Dagger Hilt](https://dagger.dev/hilt/)
+Hilt provides a standard way to incorporate Dagger dependency injection into an Android application.
+
+**The goals of Hilt are:**
+- To simplify Dagger-related infrastructure for Android apps.
+- To create a standard set of components and scopes to ease setup, readability/understanding, and code sharing between apps.
+- To provide an easy way to provision different bindings to various build types (e.g. testing, debug, or release).
+
+**Why use Hilt?**
+- Reduced boilerplate
+- Decoupled build dependencies
+- Simplified configuration
+- Improved testing
+- Standardized components
+
+
+
+### 링크
 [드로이드나이츠](https://github.com/droidknights/DroidKnights2021_App)
