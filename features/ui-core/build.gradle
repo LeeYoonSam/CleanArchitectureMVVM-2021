@@ -38,7 +38,6 @@ dependencies {
     implementation Dep.AndroidX.appcompat
     implementation Dep.AndroidX.fragment
     implementation Dep.AndroidX.material
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation Dep.timber
 
