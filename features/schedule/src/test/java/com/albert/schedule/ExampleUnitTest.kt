@@ -1,4 +1,4 @@
-package com.albert.core
+package com.albert.schedule
 
 import org.junit.Test
 

@@ -12,6 +12,11 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_schedule"
+        android:name="com.albert.schedule.ScheduleFragment"
+        android:label="@string/title_schedule" />
+
+    <fragment
         android:id="@+id/navigation_setting"
         android:name="com.albert.setting.SettingFragment"
         android:label="@string/title_setting"

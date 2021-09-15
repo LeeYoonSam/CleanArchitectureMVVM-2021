@@ -7,7 +7,7 @@ pluginManagement {
     plugins {
         id("com.android.application") version "7.1.0-alpha11"
         id("com.android.library") version "7.1.0-alpha11"
-        id("org.jetbrains.kotlin.android") version "1.5.30"
+        id("org.jetbrains.kotlin.android") version "1.5.21"
     }
 }
 
@@ -26,5 +26,6 @@ include(":features")
 include(":features:ui-core")
 include(":features:ui-core-compose")
 include(":features:home")
+include(":features:schedule")
 include(":features:setting")
 include(":features:detail")
