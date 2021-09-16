@@ -49,7 +49,6 @@ dependencies {
     implementation project(path: ':features:ui-core-compose')
 
     implementation Dep.AndroidX.core
-    implementation Dep.AndroidX.appcompat
     implementation Dep.AndroidX.fragment
 
     implementation Dep.Compose.ui
@@ -57,7 +56,6 @@ dependencies {
     implementation Dep.Compose.tooling
     implementation Dep.Compose.themeAdapter
 
-    implementation Dep.Accompanist.coil
     implementation Dep.Accompanist.flowLayout
     implementation Dep.Accompanist.pager
     implementation Dep.Accompanist.pagerIndicators

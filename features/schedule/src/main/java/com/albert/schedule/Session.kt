@@ -36,7 +36,7 @@ fun Session(
         Spacer(modifier = Modifier.height(8.dp))
 
         FlowRow(mainAxisSpacing = 6.dp) {
-            repeat(5) {
+            repeat(10) {
                 Tag(text = "Tag $it", color = "#897dad".toColor())
             }
         }
