@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/features/setting" />
             <option value="$PROJECT_DIR$/features/ui-core" />
             <option value="$PROJECT_DIR$/features/ui-core-compose" />
+            <option value="$PROJECT_DIR$/navigator" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
