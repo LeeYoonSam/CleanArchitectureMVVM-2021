@@ -32,6 +32,74 @@ Hilt provides a standard way to incorporate Dagger dependency injection into an 
 - Improved testing
 - Standardized components
 
+###LazyColumn 구성시 content: LazyListScope 구현 범위
+LazyColumn 으로 리스트를 구현할때 content 로 리스트 아이템을 구현하는데 LazyListScope 라는것이 있어서 어떤것을 할수 있는지 살펴 보았다.
+
+```kotlin
+// LazyDsl.kt
+@Composable
+fun LazyColumn(
+    ...
+    content: LazyListScope.() -> Unit
+)
+```
+
+```kotlin
+interface LazyListScope {
+    fun item(key: Any? = null, content: @Composable LazyItemScope.() -> Unit)
+
+    fun items(
+        count: Int,
+        key: ((index: Int) -> Any)? = null,
+        itemContent: @Composable LazyItemScope.(index: Int) -> Unit
+    )
+
+    fun stickyHeader(key: Any? = null, content: @Composable LazyItemScope.() -> Unit)
+}
+```
+- item: 리스트 아이템 하나를 그리는데 사용
+- items: 리스트 여러개를 그리는데 사용
+- stickyHeader: 고정된 아이템을 그리는데 사용
+**위 함수복합적으로 사용 가능**
+
+**속성 설명**
+key
+- 항목을 나타내는 고유한 키
+- 여러 항목에 대해 동일한 키를 허용하지 않는다.
+- 키는 번들을 통해 저장할수 있어야 한다.
+- 키를 지정하면 스크롤 위치가 키를 기반으로 유지된다.
+
+```kotlin
+LazyColumn {
+    stickyHeader {
+        Session(
+            modifier = Modifier.background(Color.White),
+            onSessionClick = onSessionClick
+        )
+        Divider(
+            modifier = Modifier.padding(horizontal = 24.dp),
+            color = "#EFEFEF".toColor()
+        )
+    }
+
+    item(key = 1) {
+        Session(onSessionClick = onSessionClick)
+        Divider(
+            modifier = Modifier.padding(horizontal = 24.dp),
+            color = "#EFEFEF".toColor()
+        )
+    }
+
+    items(count = 20) {
+        Session(onSessionClick = onSessionClick)
+        Divider(
+            modifier = Modifier.padding(horizontal = 24.dp),
+            color = "#EFEFEF".toColor()
+        )
+    } 
+}
+```
+
 ### 문제 기록
 
 **Compose 적용이 안되는 문제 발생**

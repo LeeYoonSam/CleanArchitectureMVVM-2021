@@ -12,12 +12,14 @@ object Versions {
 
 object Dep {
     object AndroidX {
+        const val lifecycleVersion = "2.4.0-beta01"
         const val core = "androidx.core:core-ktx:1.6.0"
         const val appcompat = "androidx.appcompat:appcompat:1.3.1"
         const val activity = "androidx.activity:activity-ktx:1.3.0"
         const val fragment = "androidx.fragment:fragment-ktx:1.3.6"
         const val material = "com.google.android.material:material:1.4.0"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
 
         const val activityCompose = "androidx.activity:activity-compose:1.3.0-rc02"
 
