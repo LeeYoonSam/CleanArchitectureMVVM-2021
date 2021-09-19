@@ -1,3 +1,6 @@
+import dependencies.Dep
+import dependencies.Versions
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -5,11 +8,11 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = Versions.compileSdk
 
     defaultConfig {
-        minSdk = 23
-        targetSdk = 31
+        minSdk = Versions.minSdk
+        targetSdk = Versions.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,4 +38,8 @@ android {
 
 dependencies {
     implementation (project(":shared"))
+
+    testImplementation(Dep.Test.junit)
+    androidTestImplementation(Dep.Test.junitExt)
+    androidTestImplementation(Dep.Test.espresso)
 }

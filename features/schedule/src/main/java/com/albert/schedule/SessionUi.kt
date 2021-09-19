@@ -8,37 +8,40 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.albert.domain.model.Session
 import com.albert.ui_core_compose.util.toColor
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
-fun Session(
+fun SessionUi(
     modifier: Modifier = Modifier,
-    onSessionClick: () -> Unit = { }
+    session: Session,
+    onSessionClick: (Session) -> Unit = {}
 ) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clickable { onSessionClick() }
+            .clickable { onSessionClick(session) }
             .padding(horizontal = 24.dp, vertical = 20.dp)
     ) {
         Text(
-            text = "테스트",
+            text = session.title,
             color = Color.Black,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(5.dp))
         Text(
-            text = "발표자",
+            text = session.speakers.joinToString(separator = " · ", transform = { it.name }),
             color = "#9A9A9A".toColor(),
             fontSize = 14.sp,
         )
         Spacer(modifier = Modifier.height(8.dp))
 
         FlowRow(mainAxisSpacing = 6.dp) {
-            repeat(5) {
-                Tag(text = "Tag $it", color = "#897dad".toColor())
+            Tag(text = session.level.title, color = session.level.color.toColor())
+            session.tags.forEach { tag ->
+                Tag(text = tag.title, color = tag.color.toColor())
             }
         }
     }

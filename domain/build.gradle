@@ -32,13 +32,17 @@ android {
 }
 
 dependencies {
-
-    implementation project(path: ':data')
+    implementation project(path: ':shared')
 
     implementation Dep.AndroidX.core
     implementation Dep.AndroidX.appcompat
     implementation Dep.AndroidX.material
+
+    implementation Dep.Kotlin.coroutine
+    implementation Dep.Kotlin.dateTime
+
     implementation Dep.timber
+    implementation Dep.inject
 
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.junitExt

@@ -1,16 +1,16 @@
 import dependencies.Dep
-import dependencies.Versions
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    compileSdk = Versions.compileSdk
+    compileSdk = 31
 
     defaultConfig {
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
+        minSdk = 23
+        targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,5 +35,11 @@ android {
 }
 
 dependencies {
-    implementation(Dep.inject)
+    implementation(project(":shared"))
+
+    implementation(Dep.Kotlin.dateTime)
+
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }

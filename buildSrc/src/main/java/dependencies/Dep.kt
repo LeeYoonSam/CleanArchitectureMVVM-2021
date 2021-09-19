@@ -19,7 +19,9 @@ object Dep {
         const val fragment = "androidx.fragment:fragment-ktx:1.3.6"
         const val material = "com.google.android.material:material:1.4.0"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+        const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
         const val activityCompose = "androidx.activity:activity-compose:1.3.0-rc02"
 
@@ -37,10 +39,13 @@ object Dep {
         const val tooling = "androidx.compose.ui:ui-tooling:$version"
 
         const val themeAdapter = "com.google.android.material:compose-theme-adapter:$version"
+        const val liveData = "androidx.compose.runtime:runtime-livedata:$version"
     }
 
     object Kotlin {
         const val version = "1.5.21"
+        const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
+        const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:0.2.1"
     }
 
     object Dagger {
