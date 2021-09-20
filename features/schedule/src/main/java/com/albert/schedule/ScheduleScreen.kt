@@ -7,7 +7,7 @@ import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.albert.domain.model.Session
+import com.albert.shared.model.Session
 import com.albert.ui_core_compose.util.toColor
 
 @Composable

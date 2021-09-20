@@ -1,10 +1,10 @@
 package com.albert.domain.session
 
 import com.albert.domain.NonParamCoroutineUseCase
-import com.albert.domain.model.Session
-import com.albert.domain.model.Level
-import com.albert.domain.model.Speaker
-import com.albert.domain.model.Tag
+import com.albert.shared.model.Session
+import com.albert.shared.model.Level
+import com.albert.shared.model.Speaker
+import com.albert.shared.model.Tag
 import com.albert.shared.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.datetime.TimeZone
@@ -20,7 +20,6 @@ class GetSessionsUseCase @Inject constructor(
             repeat(20) {
                 add(
                     Session(
-                        sessionId = it,
                         title = "Session Title $it",
                         content = "Content $it",
                         speakers = listOf(

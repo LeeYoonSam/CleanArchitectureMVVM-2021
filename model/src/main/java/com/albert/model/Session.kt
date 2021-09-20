@@ -1,12 +1,9 @@
 package com.albert.model
 
 import com.albert.shared.HexColor
-import com.albert.shared.SessionId
 import kotlinx.datetime.LocalDateTime
 
 data class Session(
-    val sessionId: SessionId,
-
     val title: String,
     val content: String,
     val speakers: List<Speaker>,

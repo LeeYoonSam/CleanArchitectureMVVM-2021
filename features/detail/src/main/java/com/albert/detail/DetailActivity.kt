@@ -8,7 +8,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.albert.shared.SessionId
+import com.albert.shared.model.Session
 import com.albert.ui.core.startActivity
 import com.albert.ui_core_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,9 +34,9 @@ class DetailActivity : ComponentActivity() {
     }
 
     companion object {
-        fun start(context: Context, sessionId: SessionId) {
+        fun start(context: Context, session: Session) {
             context.startActivity<DetailActivity>(
-                "sessionId" to sessionId
+                "session" to session
             )
         }
     }

@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.albert.domain.model.Session
+import com.albert.shared.model.Session
 import com.albert.ui_core_compose.util.toColor
 import com.google.accompanist.flowlayout.FlowRow
 

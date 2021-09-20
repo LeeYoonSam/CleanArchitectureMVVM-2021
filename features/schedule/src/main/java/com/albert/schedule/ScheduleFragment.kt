@@ -54,7 +54,7 @@ class ScheduleFragment : Fragment() {
                         ScheduleScreen(sessions = result.successOr(emptyList())) {
                             detailNavigator.openDetail(
                                 context = requireContext(),
-                                it.sessionId
+                                it
                             )
                         }
                     }

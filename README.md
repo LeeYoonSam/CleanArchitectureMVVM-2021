@@ -136,3 +136,5 @@ composeOptions {
 ### 링크
 [드로이드나이츠](https://github.com/droidknights/DroidKnights2021_App)
 [ComposeUI 릴리즈노트](https://developer.android.com/jetpack/androidx/releases/compose-ui?hl=ko)
+[kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+[kotlinx.serialization 1.2 출시](https://blog.jetbrains.com/ko/kotlin/2021/05/kotlinx-serialization-1-2-released/)

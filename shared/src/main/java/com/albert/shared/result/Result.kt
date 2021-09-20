@@ -34,7 +34,6 @@ val Result<*>.isError: Boolean get() = this is Result.Error
  */
 inline fun <T> Result<T>.successOr(fallback: T): T {
     return (this as? Result.Success<T>)?.data ?: fallback
-    Result
 }
 
 /**
