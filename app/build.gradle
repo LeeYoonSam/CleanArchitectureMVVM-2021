@@ -59,6 +59,7 @@ dependencies {
     implementation project(path: ':navigator')
     implementation project(path: ':domain')
     implementation project(path: ':shared')
+    implementation project(path: ':data')
 
     implementation Dep.AndroidX.core
     implementation Dep.AndroidX.appcompat

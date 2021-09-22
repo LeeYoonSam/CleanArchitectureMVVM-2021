@@ -1,0 +1,32 @@
+{
+  "staff": [
+    {
+      "name": "이승민",
+      "photoUrl": "https://pbs.twimg.com/profile_images/1127372836551544832/5UdtC7kP_400x400.jpg"
+    },
+    {
+      "name": "김나연",
+      "photoUrl": ""
+    },
+    {
+      "name": "김지영",
+      "photoUrl": "https://avatars1.githubusercontent.com/u/7722921?s=460&v=4"
+    },
+    {
+      "name": "pluu",
+      "photoUrl": "https://pbs.twimg.com/profile_images/683256802704687104/QnjrPuLj_400x400.jpg"
+    },
+    {
+      "name": "박상권",
+      "photoUrl": "https://raw.githubusercontent.com/droidknights/DroidKnights2021_App/main/storage/staff/박상권.jpg"
+    },
+    {
+      "name": "이영찬",
+      "photoUrl": ""
+    },
+    {
+      "name": "정석준",
+      "photoUrl": "https://raw.githubusercontent.com/droidknights/DroidKnights2021_App/main/storage/staff/정석준.png"
+    }
+  ]
+}

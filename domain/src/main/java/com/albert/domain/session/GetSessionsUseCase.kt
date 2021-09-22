@@ -1,5 +1,6 @@
 package com.albert.domain.session
 
+import com.albert.data.ConferenceApi
 import com.albert.domain.NonParamCoroutineUseCase
 import com.albert.shared.model.Session
 import com.albert.shared.model.Level
@@ -14,9 +15,16 @@ import javax.inject.Inject
 import kotlin.random.Random
 
 class GetSessionsUseCase @Inject constructor(
+    private val conferenceApi: ConferenceApi,
     @IoDispatcher dispatcher: CoroutineDispatcher
 ) : NonParamCoroutineUseCase<List<Session>>(dispatcher) {
     override suspend fun execute(): List<Session> {
+        return runCatching {
+            conferenceApi.getSessions()
+        }.getOrNull() ?: sample()
+    }
+
+    private fun sample(): List<Session> {
         val random = Random(System.currentTimeMillis())
         return mutableListOf<Session>().apply {
             repeat(20) {
