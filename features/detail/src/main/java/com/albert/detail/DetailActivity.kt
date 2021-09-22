@@ -5,16 +5,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.albert.detail.util.map
+import com.albert.shared.ext.decodeFromString
+import com.albert.shared.ext.encodeToString
 import com.albert.shared.model.Session
+import com.albert.ui.core.extraNotNull
 import com.albert.ui.core.startActivity
 import com.albert.ui_core_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailActivity : ComponentActivity() {
+
+    private val session by extraNotNull<String>("session")
+        .map { encodeString ->
+            encodeString.decodeFromString<Session>()
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,7 +36,10 @@ class DetailActivity : ComponentActivity() {
                     )
                 }
             ) { contentPadding ->
-                DetailScreen(Modifier.padding(contentPadding))
+                DetailScreen(
+                    session = session,
+                    modifier = Modifier.padding(contentPadding)
+                )
             }
         }
     }
@@ -36,24 +47,8 @@ class DetailActivity : ComponentActivity() {
     companion object {
         fun start(context: Context, session: Session) {
             context.startActivity<DetailActivity>(
-                "session" to session
+                "session" to session.encodeToString()
             )
         }
-    }
-}
-
-@Preview
-@Composable
-fun previewDetail() {
-    Scaffold(
-        topBar = {
-            DetailAppBar(
-                title = "세션 소개",
-                onNavigationClick = {  },
-                onSharedClick = { /** TBD */ }
-            )
-        }
-    ) { contentPadding ->
-        DetailScreen(Modifier.padding(contentPadding))
     }
 }
