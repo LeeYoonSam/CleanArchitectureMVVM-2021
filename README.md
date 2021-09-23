@@ -100,6 +100,59 @@ LazyColumn {
 }
 ```
 
+### ConcatAdapter
+여러 어댑터의 콘텐츠를 순서대로 표시하는 {@link Adapter} 구현
+
+```java
+    /**
+     * Creates a ConcatAdapter with {@link Config#DEFAULT} and the given adapters in the given
+     * order.
+     *
+     * @param adapters The list of adapters to add
+     */
+    @SafeVarargs
+    public ConcatAdapter(@NonNull Adapter<? extends ViewHolder>... adapters) {
+        this(Config.DEFAULT, adapters);
+    }
+```
+- 기본은 Config#DEFAULT 이며 어댑터에 주어진 순서에따라 ConcatAdapter 를 생성 
+
+```java
+    /**
+     * Creates a ConcatAdapter with the given config and the given adapters in the given order.
+     *
+     * @param config   The configuration for this ConcatAdapter
+     * @param adapters The list of adapters to add
+     * @see Config.Builder
+     */
+    @SafeVarargs
+    public ConcatAdapter(
+            @NonNull Config config,
+            @NonNull Adapter<? extends ViewHolder>... adapters) {
+        this(config, Arrays.asList(adapters));
+    }
+```
+- 주어진 Config, Adapter, 순서에 따라서 ConcatAdapter 를 생성
+
+**ConcatAdapter Config**
+
+```java
+public final boolean isolateViewTypes;
+```
+- false인 경우 ConcatAdapter는 할당된 모든 어댑터가 동일한 ViewType 을 사용하여 동일한 RecyclerView.ViewHolders를 참조하도록 전역 ViewType 풀을 공유한다고 가정합니다.
+
+```java
+public final StableIdMode stableIdMode;
+
+public enum StableIdMode {
+    NO_STABLE_IDS,
+    ISOLATED_STABLE_IDS,
+    SHARED_STABLE_IDS   
+}
+```
+- {@link ConcatAdapter}가 Stable ID를 지원해야 하는지 여부를 정의합니다({@link Adapter#hasStableIds()}.
+
+
 ### 문제 기록
 
 **Compose 적용이 안되는 문제 발생**
