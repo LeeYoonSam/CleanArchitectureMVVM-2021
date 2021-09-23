@@ -4,6 +4,8 @@ import dependencies.Versions
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -28,19 +30,30 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':features:ui-core')
+    implementation project(path: ':shared')
 
     implementation Dep.AndroidX.core
     implementation Dep.AndroidX.appcompat
     implementation Dep.AndroidX.fragment
     implementation Dep.AndroidX.material
+    implementation Dep.AndroidX.viewModel
+    implementation Dep.AndroidX.recyclerview
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    implementation Dep.Dagger.hiltAndroid
+    kapt Dep.Dagger.hiltCompiler
+
     implementation Dep.timber
+
+    implementation Dep.Kotlin.dateTime
 
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.junitExt

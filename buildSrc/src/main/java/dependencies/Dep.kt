@@ -21,6 +21,7 @@ object Dep {
         const val fragment = "androidx.fragment:fragment-ktx:1.3.6"
         const val material = "com.google.android.material:material:1.4.0"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
 
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
         const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
@@ -84,4 +85,10 @@ object Dep {
 
     const val timber = "com.jakewharton.timber:timber:5.0.1"
     const val inject = "javax.inject:javax.inject:1"
+
+    object Glide {
+        private const val version = "4.12.0"
+        const val glide = "com.github.bumptech.glide:glide:$version"
+        const val compiler = "com.github.bumptech.glide:compiler:$version"
+    }
 }
