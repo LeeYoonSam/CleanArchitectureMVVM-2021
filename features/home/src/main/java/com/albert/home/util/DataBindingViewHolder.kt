@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.albert.features.home.BR
 
 class DataBindingViewHolder<T>(
-    private val binding: ViewDataBinding
+    val binding: ViewDataBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: T) {
         binding.setVariable(BR.item, item)

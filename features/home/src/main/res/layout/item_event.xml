@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="com.albert.shared.model.Event" />
+
+        <variable
+            name="itemHandler"
+            type="com.albert.home.ui.adapter.EventAdapter.ItemHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +20,8 @@
         android:addStatesFromChildren="true"
         android:paddingHorizontal="24dp"
         android:paddingVertical="20dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> itemHandler.clickEvent(item)}"
         app:activated="@{!item.endEvent}"
         tools:layout_height="88dp">
 

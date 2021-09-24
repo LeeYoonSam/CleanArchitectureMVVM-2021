@@ -9,12 +9,12 @@ import com.albert.home.util.clearItemDecoration
 import com.albert.shared.model.Sponsor
 import kotlinx.datetime.LocalDate
 
-@BindingAdapter("sponsors")
-fun RecyclerView.bindSponsors(items: List<Sponsor>?) {
+@BindingAdapter("sponsors", "itemHandler")
+fun RecyclerView.bindSponsors(items: List<Sponsor>?, itemHandler: SponsorAdapter.ItemHandler) {
     clearItemDecoration()
 
     if (items?.isNotEmpty() == true) {
-        adapter = SponsorAdapter(items)
+        adapter = SponsorAdapter(items, itemHandler)
         addItemDecoration(SponsorItemDecoration())
     }
 }

@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="com.albert.shared.model.Sponsor" />
+
+        <variable
+            name="itemHandler"
+            type="com.albert.home.ui.adapter.SponsorAdapter.ItemHandler" />
     </data>
 
     <ImageView
@@ -15,6 +19,7 @@
         android:layout_height="22dp"
         android:layout_marginVertical="10dp"
         android:adjustViewBounds="true"
+        android:onClick="@{() -> itemHandler.clickSponsor(item)}"
         app:imgUrl="@{item.photoUrl}"
         tools:background="@color/bg_info"
         tools:src="@drawable/ic_android_white" />
