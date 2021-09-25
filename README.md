@@ -32,6 +32,17 @@ Hilt provides a standard way to incorporate Dagger dependency injection into an 
 - Improved testing
 - Standardized components
 
+### [Coil](https://github.com/coil-kt/coil)
+Kotlin Coroutines 을 지원하는 Android용 이미지 로딩 라이브러리입니다.
+
+<br>
+
+**특징**
+- Fast: Coil은 메모리 및 디스크 캐싱, 메모리의 이미지 다운샘플링, 비트맵 재사용, 요청 자동 일시 중지/취소 등을 포함한 여러 최적화를 수행합니다.
+- Lightweight: Coil은 Picasso와 비슷하고 Glide 및 Fresco보다 훨씬 적은 ~2000개 메서드를 APK에 추가합니다(이미 OkHttp 및 Coroutines를 사용하는 앱의 경우).
+- Easy to use: Coil의 API는 단순성과 최소한의 상용구를 위해 Kotlin의 언어 기능을 활용합니다.
+- Modern: Coil은 Kotlin 최초이며 Coroutine, OkHttp, Okio 및 AndroidX Lifecycles를 포함한 최신 라이브러리를 사용합니다.
+
 ###LazyColumn 구성시 content: LazyListScope 구현 범위
 LazyColumn 으로 리스트를 구현할때 content 로 리스트 아이템을 구현하는데 LazyListScope 라는것이 있어서 어떤것을 할수 있는지 살펴 보았다.
 
@@ -191,3 +202,4 @@ composeOptions {
 [ComposeUI 릴리즈노트](https://developer.android.com/jetpack/androidx/releases/compose-ui?hl=ko)
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 [kotlinx.serialization 1.2 출시](https://blog.jetbrains.com/ko/kotlin/2021/05/kotlinx-serialization-1-2-released/)
+[Coil]()
