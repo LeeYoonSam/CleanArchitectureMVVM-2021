@@ -22,7 +22,7 @@ object NetworkModule {
         OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BASIC
+                    level = HttpLoggingInterceptor.Level.BODY
                 }
             )
             .build()
@@ -32,7 +32,7 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://github.com/LeeYoonSam/CleanArchitectureMVVM-2021/tree/main/app/src/main/assets/")
+        .baseUrl("https://raw.githubusercontent.com/")
         .addConverterFactory(
             Json.asConverterFactory("application/json".toMediaType())
         )

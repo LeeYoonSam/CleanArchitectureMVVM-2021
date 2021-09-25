@@ -6,12 +6,12 @@ import com.albert.shared.model.Sponsor
 import retrofit2.http.GET
 
 interface ConferenceApi {
-    @GET("/session.json")
+    @GET("/LeeYoonSam/CleanArchitectureMVVM-2021/main/app/src/main/assets/sessions.json")
     suspend fun getSessions(): List<Session>
 
-    @GET("/event.json")
+    @GET("/LeeYoonSam/CleanArchitectureMVVM-2021/main/app/src/main/assets/event.json")
     suspend fun getEventHistory(): List<Event>
 
-    @GET("/sponsor.json")
+    @GET("/LeeYoonSam/CleanArchitectureMVVM-2021/main/app/src/main/assets/sponsor.json")
     suspend fun getSponsors(): List<Sponsor>
 }

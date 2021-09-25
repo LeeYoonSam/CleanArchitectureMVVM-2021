@@ -197,9 +197,17 @@ composeOptions {
 }
 ```
 
+### githubusercontent 로 데이터 저장소로 활용
+GitHub에서는 GitHub REST API 와 GitHub Content API를 제공한다. 원격 저장소처럼 Git에 올라와있는 파일들을 다운로드 받을 수 있다.
+
+<br>
+
+[What do raw.githubusercontent.com URLs represent?](https://newbedev.com/what-do-raw-githubusercontent-com-urls-represent)
+[깃허브를 데이터 저장소처럼 활용 - raw.githubusercontent.com](https://computer-science-student.tistory.com/297)
+[GitHub CDN 사용하기](https://zetawiki.com/wiki/GitHub_CDN_%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+
 ### 링크
 [드로이드나이츠](https://github.com/droidknights/DroidKnights2021_App)
 [ComposeUI 릴리즈노트](https://developer.android.com/jetpack/androidx/releases/compose-ui?hl=ko)
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 [kotlinx.serialization 1.2 출시](https://blog.jetbrains.com/ko/kotlin/2021/05/kotlinx-serialization-1-2-released/)
-[Coil]()
