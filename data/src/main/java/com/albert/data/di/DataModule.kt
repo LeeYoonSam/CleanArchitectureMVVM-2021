@@ -16,28 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object DataModule {
-    @Provides
-    @Singleton
-    fun provideOkHttpClient(): OkHttpClient =
-        OkHttpClient.Builder()
-            .addInterceptor(
-                HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BASIC
-                }
-            )
-            .build()
-
-    @Provides
-    @Singleton
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient
-    ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://github.com/LeeYoonSam/CleanArchitectureMVVM-2021/tree/main/app/src/main/assets/")
-        .addConverterFactory(
-            Json.asConverterFactory("application/json".toMediaType())
-        )
-        .client(okHttpClient)
-        .build()
 
     @Provides
     @Singleton
