@@ -32,6 +32,8 @@ Hilt provides a standard way to incorporate Dagger dependency injection into an 
 - Improved testing
 - Standardized components
 
+---
+
 ### [Coil](https://github.com/coil-kt/coil)
 Kotlin Coroutines 을 지원하는 Android용 이미지 로딩 라이브러리입니다.
 
@@ -42,6 +44,8 @@ Kotlin Coroutines 을 지원하는 Android용 이미지 로딩 라이브러리�
 - Lightweight: Coil은 Picasso와 비슷하고 Glide 및 Fresco보다 훨씬 적은 ~2000개 메서드를 APK에 추가합니다(이미 OkHttp 및 Coroutines를 사용하는 앱의 경우).
 - Easy to use: Coil의 API는 단순성과 최소한의 상용구를 위해 Kotlin의 언어 기능을 활용합니다.
 - Modern: Coil은 Kotlin 최초이며 Coroutine, OkHttp, Okio 및 AndroidX Lifecycles를 포함한 최신 라이브러리를 사용합니다.
+
+---
 
 ###LazyColumn 구성시 content: LazyListScope 구현 범위
 LazyColumn 으로 리스트를 구현할때 content 로 리스트 아이템을 구현하는데 LazyListScope 라는것이 있어서 어떤것을 할수 있는지 살펴 보았다.
@@ -111,6 +115,8 @@ LazyColumn {
 }
 ```
 
+---
+
 ### ConcatAdapter
 여러 어댑터의 콘텐츠를 순서대로 표시하는 {@link Adapter} 구현
 
@@ -163,6 +169,7 @@ public enum StableIdMode {
 ```
 - {@link ConcatAdapter}가 Stable ID를 지원해야 하는지 여부를 정의합니다({@link Adapter#hasStableIds()}.
 
+---
 
 ### 문제 기록
 
@@ -197,17 +204,26 @@ composeOptions {
 }
 ```
 
+---
+
 ### githubusercontent 로 데이터 저장소로 활용
 GitHub에서는 GitHub REST API 와 GitHub Content API를 제공한다. 원격 저장소처럼 Git에 올라와있는 파일들을 다운로드 받을 수 있다.
 
 <br>
 
 [What do raw.githubusercontent.com URLs represent?](https://newbedev.com/what-do-raw-githubusercontent-com-urls-represent)
+<br>
 [깃허브를 데이터 저장소처럼 활용 - raw.githubusercontent.com](https://computer-science-student.tistory.com/297)
+<br>
 [GitHub CDN 사용하기](https://zetawiki.com/wiki/GitHub_CDN_%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+<br>
 
 ### 링크
 [드로이드나이츠](https://github.com/droidknights/DroidKnights2021_App)
+<br>
 [ComposeUI 릴리즈노트](https://developer.android.com/jetpack/androidx/releases/compose-ui?hl=ko)
+<br>
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+<br>
 [kotlinx.serialization 1.2 출시](https://blog.jetbrains.com/ko/kotlin/2021/05/kotlinx-serialization-1-2-released/)
+<br>
