@@ -35,7 +35,7 @@ fun DetailScreen(
                 .fillMaxWidth()
                 .padding(24.dp)
         ) {
-            FlowRow(mainAxisSpacing = 6.dp) {
+            FlowRow(mainAxisSpacing = 6.dp, crossAxisSpacing = 6.dp) {
                 repeat(5) {
                     Tag(text = "Tag $it", color = "#897dad".toColor())
                 }

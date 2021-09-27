@@ -38,7 +38,7 @@ fun SessionUi(
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        FlowRow(mainAxisSpacing = 6.dp) {
+        FlowRow(mainAxisSpacing = 6.dp, crossAxisSpacing = 60.dp) {
             Tag(text = session.level.title, color = session.level.color.toColor())
             session.tags.forEach { tag ->
                 Tag(text = tag.title, color = tag.color.toColor())
