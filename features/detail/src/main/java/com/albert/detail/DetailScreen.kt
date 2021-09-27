@@ -70,11 +70,13 @@ fun DetailScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(
-                text = session.content,
-                color = "#9B9B9B".toColor(),
-                fontSize = 14.sp
-            )
+            session.content.forEach {
+                Text(
+                    text = it,
+                    color = "#9B9B9B".toColor(),
+                    fontSize = 14.sp
+                )
+            }
         }
     }
 }
@@ -96,6 +98,8 @@ fun ProfilesInfo(
 
 @Composable
 fun ProfileImages(speakers: List<Speaker>) {
+    if (speakers.isEmpty()) return
+
     ProfileOverLayout {
         speakers.forEach {
             Image(

@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.albert.domain.event.GetEventHistoryUseCase
-import com.albert.domain.sponsor.GetSponsorUseCase
+import com.albert.domain.usecase.event.GetEventHistoryUseCase
+import com.albert.domain.usecase.sponsor.GetSponsorUseCase
 import com.albert.home.model.HomeInfo
 import com.albert.shared.result.successOr
 import dagger.hilt.android.lifecycle.HiltViewModel

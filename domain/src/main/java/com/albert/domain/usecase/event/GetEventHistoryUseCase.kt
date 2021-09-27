@@ -1,17 +1,17 @@
-package com.albert.domain.session
+package com.albert.domain.usecase.event
 
 import com.albert.data.ConferenceRepository
 import com.albert.domain.NonParamCoroutineUseCase
-import com.albert.shared.model.Session
 import com.albert.shared.IoDispatcher
+import com.albert.shared.model.Event
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
-class GetSessionsUseCase @Inject constructor(
+class GetEventHistoryUseCase @Inject constructor(
     private val conferenceRepository: ConferenceRepository,
     @IoDispatcher dispatcher: CoroutineDispatcher
-) : NonParamCoroutineUseCase<List<Session>>(dispatcher) {
-    override suspend fun execute(): List<Session> {
-        return conferenceRepository.getSessions()
+) : NonParamCoroutineUseCase<List<Event>>(dispatcher) {
+    override suspend fun execute(): List<Event> {
+        return conferenceRepository.getEventHistory()
     }
 }

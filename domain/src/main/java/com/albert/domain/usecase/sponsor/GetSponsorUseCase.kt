@@ -1,4 +1,4 @@
-package com.albert.domain.sponsor
+package com.albert.domain.usecase.sponsor
 
 import com.albert.data.ConferenceRepository
 import com.albert.domain.NonParamCoroutineUseCase
