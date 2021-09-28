@@ -23,7 +23,7 @@ fun ScheduleScreen(
             )
             Divider(
                 modifier = Modifier.padding(horizontal = 24.dp),
-                color = "#EFEFEF".toColor()
+                color = "#EFEFEF".toColor
             )
         }
     }

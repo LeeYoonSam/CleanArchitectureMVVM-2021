@@ -171,6 +171,63 @@ public enum StableIdMode {
 
 ---
 
+### value class
+- value class는 객체를 생성하는 비용을 줄여줍니다.
+<br>
+  
+**언뜻보기에는 일반 클래스와 비슷해보이지만 새로운 키워드가 두 개가 보입니다.**
+- value keyword 
+- @JvmInline annotation
+
+1. value keyword
+   - 먼저 value 키워드를 통해서 value class를 정의할 수 있습니다. 이렇게 정의된 value class는 컴파일러의 도움을 받아 최적화의 대상이 됩니다.
+
+2. @JvmInline annotation
+   - @JvmInline 어노테이션은 코틀린의 다른 버전(Kotlin/JS, Kotlin/Native)과의 value class 호환을 위해 존재하는 어노테이션입니다.
+<br>
+     
+**데이터 클래스와의 차이점**
+- 데이터를 저장하는 클래스라는 점과 값을 저장하는 클래스라는 점에서 같은 의미로 느껴지기 때문에 차이점을 확실히 알고가는 것이 좋을 것 같습니다.
+
+1. 자동 생성하는 메소드가 다릅니다.
+   - 데이터 클래스는 equals(), toString(), hashCode(), copy(), componentN() 메소드를 자동 생성하는 반면에 value class는 equals(), toString(), hashCode() 메소드만 자동 생성합니다.
+
+2. === 연산을 컴파일 단계에서 금지합니다.
+   - 또한 데이터 클래스는 `==` 연산 (자바의 `equals`), `===` 연산 (자바의 `==`)을 모두 지원하지만, value class는 `==` 연산만 지원하고 `===` 연산은 지원하지 않습니다.
+
+```kotlin
+value class Box(element: String)
+
+val chineseBanana = Box("chinese banana")
+val koreanBanana = Box("chinese banana")
+println(chineseBanana == koreanBanana)
+println(chineseBanana === koreanBanana)
+// Identity equality for arguments of types Box and Box is forbidden
+```
+
+3. 반드시 val 프로퍼티만 허용합니다.
+   - 데이터 클래스의 프로퍼티는 Mutable하든, Immutable하든 관계 없습니다. 하지만 value class는 반드시 Immutable한 프로퍼티만 정의 가능합니다.
+
+```kotlin
+value class Box(var mutableProperty)
+// Value class primary constructor must have only final read-only (val) property parameter
+```
+
+4. 하나의 프로퍼티만 가능합니다.
+   - 현재는 value class에 프로퍼티를 하나만 정의 가능합니다. 이는 추후에 개선될 것이라고 공식 입장을 밝혔으니 추후 업데이트를 기다려야할 것 같습니다.
+
+```kotlin
+value class Box(
+    val element1: String,
+    val element2: String,
+) // Inline class must have exactly one primary constructor parameter
+```
+
+**참고**
+- [Kotlin 1.5에 추가된 value class에 대해 알아보자](https://velog.io/@dhwlddjgmanf/Kotlin-1.5%EC%97%90-%EC%B6%94%EA%B0%80%EB%90%9C-value-class%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90)
+
+---
+
 ### 문제 기록
 
 **Compose 적용이 안되는 문제 발생**
