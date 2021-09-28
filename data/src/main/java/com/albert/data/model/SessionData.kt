@@ -1,5 +1,6 @@
-package com.albert.shared.model
+package com.albert.data.model
 
+import com.albert.shared.model.Speaker
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
 

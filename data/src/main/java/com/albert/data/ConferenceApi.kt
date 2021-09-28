@@ -1,8 +1,7 @@
 package com.albert.data
 
 import com.albert.shared.model.Event
-import com.albert.shared.model.Session
-import com.albert.shared.model.SessionData
+import com.albert.data.model.SessionData
 import com.albert.shared.model.Sponsor
 import retrofit2.http.GET
 
