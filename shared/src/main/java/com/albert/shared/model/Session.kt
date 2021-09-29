@@ -1,6 +1,7 @@
 package com.albert.shared.model
 
-import com.albert.shared.HexColor
+import com.albert.shared.Level
+import com.albert.shared.Tag
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
 
@@ -15,18 +16,6 @@ data class Session(
     val room: String,
     val startTime: LocalDateTime,
     val endTime: LocalDateTime
-)
-
-@Serializable
-data class Level(
-    val title: String,
-    val color: HexColor
-)
-
-@Serializable
-data class Tag(
-    val title: String,
-    val color: HexColor
 )
 
 @Serializable

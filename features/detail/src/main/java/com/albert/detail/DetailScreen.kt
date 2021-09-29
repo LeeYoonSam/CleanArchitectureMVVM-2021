@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.albert.schedule.Tag
+import com.albert.shared.ext.color
 import com.albert.shared.model.Session
 import com.albert.shared.model.Speaker
 import com.albert.ui_core_compose.util.toColor
@@ -36,8 +37,9 @@ fun DetailScreen(
                 .padding(24.dp)
         ) {
             FlowRow(mainAxisSpacing = 6.dp, crossAxisSpacing = 6.dp) {
-                repeat(5) {
-                    Tag(text = "Tag $it", color = "#897dad".toColor())
+                Tag(text = session.level.name, color = session.level.color.toColor())
+                session.tags.forEach { tag ->
+                    Tag(text = tag.name, color = tag.color.toColor())
                 }
             }
 

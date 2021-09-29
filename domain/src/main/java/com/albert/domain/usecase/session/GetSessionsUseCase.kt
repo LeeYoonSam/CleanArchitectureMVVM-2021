@@ -2,8 +2,6 @@ package com.albert.domain.usecase.session
 
 import com.albert.data.ConferenceRepository
 import com.albert.domain.NonParamCoroutineUseCase
-import com.albert.domain.mapper.toLevel
-import com.albert.domain.mapper.toTag
 import com.albert.shared.model.Session
 import com.albert.shared.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
@@ -20,10 +18,8 @@ class GetSessionsUseCase @Inject constructor(
                     title = it.title,
                     content = it.content,
                     speakers = it.speakers,
-                    level = it.level.toLevel(),
-                    tags = it.tags.map { tag ->
-                        tag.toTag()
-                    },
+                    level = it.level,
+                    tags = it.tags,
                     room = it.room ?: "",
                     startTime = it.startTime,
                     endTime = it.endTime

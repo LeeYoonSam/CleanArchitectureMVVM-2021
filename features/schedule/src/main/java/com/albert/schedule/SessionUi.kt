@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.albert.shared.ext.color
 import com.albert.shared.model.Session
 import com.albert.ui_core_compose.util.toColor
 import com.google.accompanist.flowlayout.FlowRow
@@ -39,9 +40,9 @@ fun SessionUi(
         Spacer(modifier = Modifier.height(8.dp))
 
         FlowRow(mainAxisSpacing = 6.dp, crossAxisSpacing = 60.dp) {
-            Tag(text = session.level.title, color = session.level.color.toColor())
+            Tag(text = session.level.name, color = session.level.color.toColor())
             session.tags.forEach { tag ->
-                Tag(text = tag.title, color = tag.color.toColor())
+                Tag(text = tag.name, color = tag.color.toColor())
             }
         }
     }
