@@ -37,7 +37,7 @@ fun DetailScreen(
         ) {
             FlowRow(mainAxisSpacing = 6.dp, crossAxisSpacing = 6.dp) {
                 repeat(5) {
-                    Tag(text = "Tag $it", color = "#897dad".toColor)
+                    Tag(text = "Tag $it", color = "#897dad".toColor())
                 }
             }
 
@@ -55,7 +55,7 @@ fun DetailScreen(
             ProfilesInfo(speakers = session.speakers)
         }
 
-        Divider(modifier = Modifier.height(8.dp), color = "#F5F5F5".toColor)
+        Divider(modifier = Modifier.height(8.dp), color = "#F5F5F5".toColor())
 
         Column(
             modifier = Modifier
@@ -64,7 +64,7 @@ fun DetailScreen(
         ) {
             Text(
                 text = "내용",
-                color = "#2F2E32".toColor,
+                color = "#2F2E32".toColor(),
                 fontSize = 16.sp
             )
 
@@ -73,7 +73,7 @@ fun DetailScreen(
             session.content.forEach {
                 Text(
                     text = it,
-                    color = "#9B9B9B".toColor,
+                    color = "#9B9B9B".toColor(),
                     fontSize = 14.sp
                 )
             }

@@ -3,8 +3,8 @@ package com.albert.ui_core_compose.util
 import androidx.compose.ui.graphics.Color
 import com.albert.shared.HexColor
 
-val String.toColor: Color
-    get() = Color(android.graphics.Color.parseColor(this))
+fun String.toColor(): Color =
+    Color(android.graphics.Color.parseColor(this))
 
-val HexColor.toColor: Color
-    get() = this.value.toColor
+fun HexColor.toColor(): Color =
+    this.value.toColor()
