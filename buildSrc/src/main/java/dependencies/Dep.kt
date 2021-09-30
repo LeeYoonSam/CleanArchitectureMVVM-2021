@@ -29,9 +29,10 @@ object Dep {
         const val activityCompose = "androidx.activity:activity-compose:1.3.0-rc02"
 
         object Navigation {
-            private const val version = "2.3.5"
+            private const val version = "2.4.0-alpha05"
             const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
             const val ui = "androidx.navigation:navigation-ui-ktx:$version"
+            const val composoe = "androidx.navigation:navigation-compose:$version"
         }
     }
 
@@ -63,14 +64,14 @@ object Dep {
     }
 
     object Accompanist {
-        private const val version = "0.14.0"
+        private const val version = "0.15.0"
         const val flowLayout = "com.google.accompanist:accompanist-flowlayout:$version"
         const val pager = "com.google.accompanist:accompanist-pager:$version"
         const val pagerIndicators = "com.google.accompanist:accompanist-pager-indicators:$version"
     }
 
     object Coil {
-        const val compose = "io.coil-kt:coil-compose:1.3.0"
+        const val compose = "io.coil-kt:coil-compose:1.3.1"
     }
 
     object Square {
