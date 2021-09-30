@@ -20,7 +20,7 @@ class GetSessionsUseCase @Inject constructor(
                     speakers = it.speakers,
                     level = it.level,
                     tags = it.tags,
-                    room = it.room ?: "",
+                    room = it.room,
                     startTime = it.startTime,
                     endTime = it.endTime
                 )

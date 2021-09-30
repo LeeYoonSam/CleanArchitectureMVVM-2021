@@ -1,6 +1,7 @@
 package com.albert.shared.model
 
 import com.albert.shared.Level
+import com.albert.shared.Room
 import com.albert.shared.Tag
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
@@ -12,8 +13,7 @@ data class Session(
     val speakers: List<Speaker>,
     val level: Level,
     val tags: List<Tag>,
-
-    val room: String,
+    val room: Room,
     val startTime: LocalDateTime,
     val endTime: LocalDateTime
 )
