@@ -1,4 +1,4 @@
-package com.albert.home.util
+package com.albert.home.util.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.albert.home.util.DataBindingViewHolder
 
-abstract class DataBindingAdapter<T>(
+abstract class ListBindingAdapter<T>(
     diffCallback: DiffUtil.ItemCallback<T>
 ) : ListAdapter<T, DataBindingViewHolder<T>>(diffCallback) {
 

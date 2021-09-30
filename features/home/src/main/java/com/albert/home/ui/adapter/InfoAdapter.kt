@@ -1,16 +1,19 @@
 package com.albert.home.ui.adapter
 
-import androidx.recyclerview.widget.DiffUtil
 import com.albert.features.home.BR
 import com.albert.features.home.R
-import com.albert.home.util.DataBindingAdapter
 import com.albert.home.util.DataBindingViewHolder
+import com.albert.home.util.recyclerview.ItemDiffCallback
+import com.albert.home.util.recyclerview.ListBindingAdapter
 import com.albert.shared.model.Sponsor
 
 internal class InfoAdapter(
     sponsors: List<Sponsor>,
     private val itemHandler: ItemHandler
-) : DataBindingAdapter<InfoItem>(DiffCallback()){
+) : ListBindingAdapter<InfoItem>(ItemDiffCallback(
+    onItemsTheSame = { old, new -> old.sponsors == new.sponsors },
+    onContentsTheSame = { old, new -> old == new }
+)) {
     init {
         submitList(listOf(InfoItem(sponsors)))
     }
@@ -32,16 +35,6 @@ internal class InfoAdapter(
 
     interface ItemHandler {
         fun clickSponsor(sponsor: Sponsor)
-    }
-
-    private class DiffCallback : DiffUtil.ItemCallback<InfoItem>() {
-        override fun areItemsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean {
-            return oldItem.sponsors == newItem.sponsors
-        }
-
-        override fun areContentsTheSame(oldItem: InfoItem, newItem: InfoItem): Boolean {
-            return oldItem.sponsors == newItem.sponsors
-        }
     }
 }
 
