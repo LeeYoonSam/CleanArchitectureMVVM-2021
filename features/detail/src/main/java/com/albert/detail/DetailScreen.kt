@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
 import com.albert.schedule.Tag
 import com.albert.shared.ext.color
 import com.albert.shared.model.Session
@@ -105,7 +106,14 @@ fun ProfileImages(speakers: List<Speaker>) {
     ProfileOverLayout {
         speakers.forEach {
             Image(
-                painter = painterResource(id = R.drawable.ic_android_92b9e9_24),
+                painter = rememberImagePainter(
+                    data = it.photoUrl,
+                    builder = {
+                        crossfade(true)
+                        placeholder(R.drawable.ic_android_92b9e9_24)
+                        error(R.drawable.ic_android_92b9e9_24)
+                    }
+                ),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(35.dp)
