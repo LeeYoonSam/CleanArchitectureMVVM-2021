@@ -23,27 +23,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import com.albert.setting.ui.SettingAppBar
 import com.albert.shared.model.User
 import com.albert.ui_core_compose.util.toColor
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ContributorScreen(
+internal fun ContributorScreen(
     users: List<User>
 ) {
     Scaffold(
-        topBar = {
-            Column(
-                modifier = Modifier.padding(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 14.dp)
-            ) {
-                Text(
-                    text = "Contributors",
-                    color = "#2F2E32".toColor(),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-        }
+        topBar = { SettingAppBar(title = "Contributors") }
     ) { innerPadding ->
         LazyVerticalGrid(
             cells = GridCells.Fixed(3),
@@ -52,7 +42,7 @@ fun ContributorScreen(
         ) {
             items(users) { contributor ->
                 ContributorProfile(
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(8.dp),
                     user = contributor
                 )
             }
@@ -61,7 +51,7 @@ fun ContributorScreen(
 }
 
 @Composable
-fun ContributorProfile(
+private fun ContributorProfile(
     modifier: Modifier = Modifier,
     user: User
 ) {
