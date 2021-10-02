@@ -23,13 +23,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
-import com.albert.shared.model.Contributor
+import com.albert.shared.model.User
 import com.albert.ui_core_compose.util.toColor
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ContributorScreen(
-    contributors: List<Contributor>
+    users: List<User>
 ) {
     Scaffold(
         topBar = {
@@ -50,10 +50,10 @@ fun ContributorScreen(
             modifier = Modifier.padding(innerPadding),
             contentPadding = PaddingValues(10.dp)
         ) {
-            items(contributors) { contributor ->
+            items(users) { contributor ->
                 ContributorProfile(
                     modifier = Modifier.padding(10.dp),
-                    contributor = contributor
+                    user = contributor
                 )
             }
         }
@@ -63,7 +63,7 @@ fun ContributorScreen(
 @Composable
 fun ContributorProfile(
     modifier: Modifier = Modifier,
-    contributor: Contributor
+    user: User
 ) {
     Card(
         modifier = modifier.aspectRatio(1f),
@@ -81,7 +81,7 @@ fun ContributorProfile(
                     .aspectRatio(1f)
                     .clip(CircleShape),
                 painter = rememberImagePainter(
-                    data = contributor.profileUrl,
+                    data = user.photoUrl,
                     builder = {
                         crossfade(true)
                         placeholder(com.albert.features.setting.R.drawable.ic_black_android_24)
@@ -94,7 +94,7 @@ fun ContributorProfile(
             
             Spacer(modifier = Modifier.height(10.dp))
             Text(
-                text = contributor.name,
+                text = user.name,
                 color = "#2F2E32".toColor(),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
@@ -112,7 +112,7 @@ fun ContributorProfile(
 fun ContributorsProfilePreview() {
     val list = buildList {
         repeat(5) {
-            add(Contributor("Droid Kngiths 2021", ""))
+            add(User("Droid Kngiths 2021", ""))
         }
     }
     Surface {
@@ -125,7 +125,7 @@ fun ContributorsProfilePreview() {
 fun ContributorProfilePreview() {
     Surface {
         ContributorProfile(
-            contributor = Contributor("Droid Kngiths 2021", "")
+            user = User("Droid Kngiths 2021", "")
         )
     }
 }

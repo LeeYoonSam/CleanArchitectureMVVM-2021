@@ -22,7 +22,7 @@ import coil.compose.rememberImagePainter
 import com.albert.schedule.Tag
 import com.albert.shared.ext.color
 import com.albert.shared.model.Session
-import com.albert.shared.model.Speaker
+import com.albert.shared.model.User
 import com.albert.ui_core_compose.util.toColor
 import com.google.accompanist.flowlayout.FlowRow
 
@@ -87,7 +87,7 @@ fun DetailScreen(
 @Composable
 fun ProfilesInfo(
     modifier: Modifier = Modifier,
-    speakers: List<Speaker>
+    speakers: List<User>
 ) {
     Row(
         modifier = modifier,
@@ -100,7 +100,7 @@ fun ProfilesInfo(
 }
 
 @Composable
-fun ProfileImages(speakers: List<Speaker>) {
+fun ProfileImages(speakers: List<User>) {
     if (speakers.isEmpty()) return
 
     ProfileOverLayout {
