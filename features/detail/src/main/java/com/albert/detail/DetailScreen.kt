@@ -95,7 +95,7 @@ fun ProfilesInfo(
     ) {
         ProfileImages(speakers)
         Spacer(modifier = Modifier.width(8.dp))
-        Text(text = "발표자 · 발표자")
+        Text(text = speakers.joinToString(separator = " · ", transform = { it.name }))
     }
 }
 
@@ -147,7 +147,7 @@ fun ProfileOverLayout(
 
         layout(
             width = layoutWidth,
-            height = placeables.maxOf { it.height }
+            height = placeables.maxOfOrNull { it.height } ?: 0
         ) {
             var xPosition = 0
 
