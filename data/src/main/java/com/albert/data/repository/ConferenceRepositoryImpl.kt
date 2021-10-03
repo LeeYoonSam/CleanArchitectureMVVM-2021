@@ -6,6 +6,7 @@ import com.albert.data.cache.LocalCacheProvider
 import com.albert.shared.model.Event
 import com.albert.data.model.SessionData
 import com.albert.shared.model.Sponsor
+import com.albert.shared.model.User
 import javax.inject.Inject
 
 class ConferenceRepositoryImpl @Inject constructor(
@@ -28,5 +29,11 @@ class ConferenceRepositoryImpl @Inject constructor(
         return runCatching {
             conferenceApi.getSponsors()
         }.getOrDefault(localCacheProvider.getSponsors())
+    }
+
+    override suspend fun getStaffs(): List<User> {
+        return kotlin.runCatching {
+            conferenceApi.getStaffs()
+        }.getOrDefault(localCacheProvider.getStaffs())
     }
 }
