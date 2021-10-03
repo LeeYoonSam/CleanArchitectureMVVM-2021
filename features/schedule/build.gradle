@@ -52,8 +52,8 @@ dependencies {
 
     implementation Dep.AndroidX.core
     implementation Dep.AndroidX.fragment
-    implementation Dep.AndroidX.viewModel
-    implementation Dep.AndroidX.livedata
+    implementation Dep.AndroidX.Lifecycle.viewModel
+    implementation Dep.AndroidX.Lifecycle.livedata
 
     implementation Dep.Compose.ui
     implementation Dep.Compose.material
