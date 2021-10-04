@@ -44,9 +44,14 @@ android {
 
 dependencies {
 
+    implementation project(path: ':domain')
     implementation project(path: ':features:ui-core')
     implementation project(path: ':features:ui-core-compose')
     implementation project(path: ':shared')
+
+    implementation Dep.AndroidX.Lifecycle.livedata
+    implementation Dep.AndroidX.Lifecycle.viewModelCompose
+    implementation Dep.AndroidX.Navigation.composoe
 
     implementation Dep.Compose.ui
     implementation Dep.Compose.material
