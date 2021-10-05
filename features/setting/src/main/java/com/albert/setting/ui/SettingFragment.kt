@@ -16,12 +16,10 @@ import com.albert.setting.ContributorScreen
 import com.albert.setting.Route
 import com.albert.setting.ScreenAction
 import com.albert.setting.SettingScreen
-import com.albert.shared.model.User
-import com.albert.shared.result.Result
-import com.albert.shared.result.data
 import com.albert.ui_core_compose.layout.FullScreenLoading
 import com.albert.ui_core_compose.layout.LoadingContent
 import com.albert.ui_core_compose.setThemeContent
+import com.albert.ui_core_compose.state.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,19 +52,19 @@ fun SettingContainer(
         }
 
         composable(Route.Speaker.destination) {
-            val result by viewModel.speakers.observeAsState()
+            val result by viewModel.speakers.observeAsState(UiState.loading())
             LoadingContent(
-                loading = result is Result.Loading,
+                loading = result.initialLoad,
                 loadingContent = { FullScreenLoading()}
             ) {
-                SpeakerScreen(speakers = result?.data.orEmpty())
+                SpeakerScreen(speakers = result.getOrThrow())
             }
         }
 
         composable(Route.Contributor.destination) {
-            val result by viewModel.contributors.observeAsState()
+            val result by viewModel.contributors.observeAsState(UiState.loading())
             LoadingContent(
-                loading = result is Result.Loading,
+                loading = result.initialLoad,
                 loadingContent = { FullScreenLoading()}
             ) {
                 ContributorScreen(users = result?.data.orEmpty())
@@ -74,9 +72,9 @@ fun SettingContainer(
         }
 
         composable(Route.Staff.destination) {
-            val result by viewModel.staff.observeAsState()
+            val result by viewModel.staff.observeAsState(UiState.loading())
             LoadingContent(
-                loading = result is Result.Loading,
+                loading = result.initialLoad,
                 loadingContent = { FullScreenLoading()}
             ) {
                 StaffScreen(staffs = result?.data.orEmpty())

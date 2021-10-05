@@ -7,6 +7,8 @@ import com.albert.domain.usecase.session.GetSessionsUseCase
 import com.albert.domain.usecase.staff.GetStaffUseCase
 import com.albert.shared.result.Result
 import com.albert.shared.result.data
+import com.albert.ui_core_compose.extension.toUiState
+import com.albert.ui_core_compose.state.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,22 +19,22 @@ class SettingViewModel @Inject constructor(
     private val getContributorsUseCase: GetContributorsUseCase
 ) : ViewModel() {
     val speakers = liveData {
-        emit(Result.Loading)
+        emit(UiState.loading())
         val users = getSessionsUseCase().data.orEmpty()
             .flatMap {
                 it.speakers
             }.distinct()
             .sortedBy { it.name }
-        emit(Result.Success(users))
+        emit(UiState.success(users))
     }
 
     val staff = liveData {
-        emit(Result.Loading)
-        emit(getStaffUseCase())
+        emit(UiState.loading())
+        emit(getStaffUseCase().toUiState())
     }
 
     val contributors = liveData {
-        emit(Result.Loading)
+        emit(UiState.loading())
         val users = getContributorsUseCase(
             GetContributorsUseCase.Param(
                 "LeeYoonSam",
@@ -40,6 +42,6 @@ class SettingViewModel @Inject constructor(
                 1
             )
         ).data.orEmpty()
-        emit(Result.Success(users))
+        emit(UiState.success(users))
     }
 }
