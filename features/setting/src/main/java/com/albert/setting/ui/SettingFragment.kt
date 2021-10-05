@@ -17,7 +17,10 @@ import com.albert.setting.Route
 import com.albert.setting.ScreenAction
 import com.albert.setting.SettingScreen
 import com.albert.shared.model.User
+import com.albert.shared.result.Result
 import com.albert.shared.result.data
+import com.albert.ui_core_compose.layout.FullScreenLoading
+import com.albert.ui_core_compose.layout.LoadingContent
 import com.albert.ui_core_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,21 +55,32 @@ fun SettingContainer(
 
         composable(Route.Speaker.destination) {
             val result by viewModel.speakers.observeAsState()
-            SpeakerScreen(speakers = result?.data.orEmpty())
+            LoadingContent(
+                loading = result is Result.Loading,
+                loadingContent = { FullScreenLoading()}
+            ) {
+                SpeakerScreen(speakers = result?.data.orEmpty())
+            }
         }
 
         composable(Route.Contributor.destination) {
-            val list = buildList {
-                repeat(5) {
-                    add(User("Droid Kngiths 2021", ""))
-                }
+            val result by viewModel.contributors.observeAsState()
+            LoadingContent(
+                loading = result is Result.Loading,
+                loadingContent = { FullScreenLoading()}
+            ) {
+                ContributorScreen(users = result?.data.orEmpty())
             }
-            ContributorScreen(list)
         }
 
         composable(Route.Staff.destination) {
             val result by viewModel.staff.observeAsState()
-            StaffScreen(staffs = result?.data.orEmpty())
+            LoadingContent(
+                loading = result is Result.Loading,
+                loadingContent = { FullScreenLoading()}
+            ) {
+                StaffScreen(staffs = result?.data.orEmpty())
+            }
         }
     }
 }
