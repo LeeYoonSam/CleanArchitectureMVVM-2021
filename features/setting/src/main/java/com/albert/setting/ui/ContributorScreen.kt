@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.albert.setting.ui.SettingAppBar
+import com.albert.setting.ui.compose.NetworkImage
 import com.albert.shared.model.User
 import com.albert.ui_core_compose.util.toColor
 
@@ -65,21 +66,13 @@ private fun ContributorProfile(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Image(
+            NetworkImage(
+                imageUrl = user.photoUrl,
+                nonSuccessTintColor = "#43B1B3".toColor(),
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
                     .clip(CircleShape),
-                painter = rememberImagePainter(
-                    data = user.photoUrl,
-                    builder = {
-                        crossfade(true)
-                        placeholder(com.albert.features.setting.R.drawable.ic_black_android_24)
-                        error(com.albert.features.setting.R.drawable.ic_black_android_24)
-                    }
-                ),
-                colorFilter = ColorFilter.tint(color = "#43B1B3".toColor()),
-                contentDescription = null
             )
             
             Spacer(modifier = Modifier.height(10.dp))

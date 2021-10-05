@@ -2,6 +2,7 @@ package com.albert.data.repository
 
 import com.albert.data.ConferenceApi
 import com.albert.data.ConferenceRepository
+import com.albert.data.api.GithubApi
 import com.albert.data.cache.LocalCacheProvider
 import com.albert.shared.model.Event
 import com.albert.data.model.SessionData
@@ -11,6 +12,7 @@ import javax.inject.Inject
 
 class ConferenceRepositoryImpl @Inject constructor(
     private val conferenceApi: ConferenceApi,
+    private val githubApi: GithubApi,
     private val localCacheProvider: LocalCacheProvider
 ) : ConferenceRepository {
     override suspend fun getEventHistory(): List<Event> {
@@ -20,7 +22,7 @@ class ConferenceRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getSessions(): List<SessionData> {
-        return kotlin.runCatching {
+        return runCatching {
             conferenceApi.getSessions()
         }.getOrDefault(localCacheProvider.getSessions())
     }
@@ -32,8 +34,25 @@ class ConferenceRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getStaffs(): List<User> {
-        return kotlin.runCatching {
+        return runCatching {
             conferenceApi.getStaffs()
         }.getOrDefault(localCacheProvider.getStaffs())
+    }
+
+    override suspend fun getContributors(
+        owner: String,
+        name: String,
+        pageNo: Int
+    ): List<User> {
+        return githubApi.getContributors(
+            owner = owner,
+            name = name,
+            page = pageNo
+        ).map {
+            User(
+                name = it.name,
+                photoUrl = it.photoUrl
+            )
+        }
     }
 }
