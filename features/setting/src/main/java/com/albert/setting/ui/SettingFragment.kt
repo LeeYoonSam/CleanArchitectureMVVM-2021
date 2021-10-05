@@ -18,6 +18,8 @@ import com.albert.setting.ScreenAction
 import com.albert.setting.SettingScreen
 import com.albert.shared.model.User
 import com.albert.shared.result.Result
+import com.albert.shared.result.data
+import com.albert.shared.result.isSuccess
 import com.albert.ui_core_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -51,12 +53,12 @@ fun SettingContainer(
         }
 
         composable(Route.Speaker.destination) {
-            val list = buildList {
-                repeat(20) {
-                    add(User("Droid Kngiths 2021", "", "회사명", "링크"))
+            val result by viewModel.speakers.observeAsState()
+            result?.let {
+                if (it is Result.Success) {
+                    SpeakerScreen(speakers = it.data)
                 }
             }
-            SpeakerScreen(list)
         }
 
         composable(Route.Contributor.destination) {

@@ -48,4 +48,4 @@ inline fun <R, T : R> Result<T>.getOrDefault(defaultValue: R): R {
  * Returns [Result.data] or null
  */
 val <T> Result<T>.data: T?
-    get() = (this as? Result<T>)?.data
+    get() = (this as? Result.Success)?.data
