@@ -17,9 +17,7 @@ import com.albert.setting.Route
 import com.albert.setting.ScreenAction
 import com.albert.setting.SettingScreen
 import com.albert.shared.model.User
-import com.albert.shared.result.Result
 import com.albert.shared.result.data
-import com.albert.shared.result.isSuccess
 import com.albert.ui_core_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,11 +52,7 @@ fun SettingContainer(
 
         composable(Route.Speaker.destination) {
             val result by viewModel.speakers.observeAsState()
-            result?.let {
-                if (it is Result.Success) {
-                    SpeakerScreen(speakers = it.data)
-                }
-            }
+            SpeakerScreen(speakers = result?.data.orEmpty())
         }
 
         composable(Route.Contributor.destination) {
@@ -72,11 +66,7 @@ fun SettingContainer(
 
         composable(Route.Staff.destination) {
             val result by viewModel.staff.observeAsState()
-            result?.let {
-                if (it is Result.Success) {
-                    StaffScreen(staffs = it.data)
-                }
-            }
+            StaffScreen(staffs = result?.data.orEmpty())
         }
     }
 }
