@@ -3,7 +3,7 @@ package com.albert.home.ui
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.albert.ui.core.dp2px
+import com.albert.core.ui.dp2px
 
 class SponsorItemDecoration: RecyclerView.ItemDecoration() {
     private val edgeSize = 16.dp2px()

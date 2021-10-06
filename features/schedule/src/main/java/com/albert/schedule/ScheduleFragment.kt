@@ -16,10 +16,10 @@ import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.albert.navigator.DetailNavigator
-import com.albert.ui_core_compose.layout.FullScreenLoading
-import com.albert.ui_core_compose.layout.LoadingContent
-import com.albert.ui_core_compose.setThemeContent
-import com.albert.ui_core_compose.state.UiState
+import com.albert.core_ui_compose.layout.FullScreenLoading
+import com.albert.core_ui_compose.layout.LoadingContent
+import com.albert.core_ui_compose.setThemeContent
+import com.albert.core_ui_compose.state.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject

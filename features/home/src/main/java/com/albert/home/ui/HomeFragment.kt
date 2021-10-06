@@ -15,7 +15,7 @@ import com.albert.home.ui.adapter.HeaderAdapter
 import com.albert.home.ui.adapter.InfoAdapter
 import com.albert.shared.model.Event
 import com.albert.shared.model.Sponsor
-import com.albert.ui.core.ActivityHelper
+import com.albert.core.ui.ActivityHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

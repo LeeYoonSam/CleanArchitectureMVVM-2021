@@ -10,9 +10,9 @@ import com.albert.detail.util.map
 import com.albert.shared.ext.decodeFromString
 import com.albert.shared.ext.encodeToString
 import com.albert.shared.model.Session
-import com.albert.ui.core.extraNotNull
-import com.albert.ui.core.startActivity
-import com.albert.ui_core_compose.setThemeContent
+import com.albert.core.ui.extraNotNull
+import com.albert.core.ui.startActivity
+import com.albert.core_ui_compose.setThemeContent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

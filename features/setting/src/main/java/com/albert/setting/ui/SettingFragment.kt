@@ -16,10 +16,10 @@ import com.albert.setting.ContributorScreen
 import com.albert.setting.Route
 import com.albert.setting.ScreenAction
 import com.albert.setting.SettingScreen
-import com.albert.ui_core_compose.layout.FullScreenLoading
-import com.albert.ui_core_compose.layout.LoadingContent
-import com.albert.ui_core_compose.setThemeContent
-import com.albert.ui_core_compose.state.UiState
+import com.albert.core_ui_compose.layout.FullScreenLoading
+import com.albert.core_ui_compose.layout.LoadingContent
+import com.albert.core_ui_compose.setThemeContent
+import com.albert.core_ui_compose.state.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
