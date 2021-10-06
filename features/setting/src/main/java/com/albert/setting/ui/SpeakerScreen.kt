@@ -7,10 +7,9 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,7 +19,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.albert.setting.Route
 import com.albert.setting.ui.compose.NetworkImage
 import com.albert.shared.model.User
 import com.albert.core_ui_compose.util.toColor
@@ -28,10 +26,23 @@ import com.albert.core_ui_compose.util.toColor
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun SpeakerScreen(
-    speakers: List<User>
+    speakers: List<User>,
+    onBackAction: () -> Unit
 ) {
     Scaffold(
-        topBar = { SettingAppBar(title = Route.Speaker.name) }
+        topBar = {
+            SettingAppBar(
+                title = "Speaker",
+                navigationIcon = {
+                    IconButton(onClick = onBackAction) {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = null
+                        )
+                    }
+                }
+            )
+        }
     ) { innerPadding ->
         LazyVerticalGrid(
             cells = GridCells.Fixed(2),

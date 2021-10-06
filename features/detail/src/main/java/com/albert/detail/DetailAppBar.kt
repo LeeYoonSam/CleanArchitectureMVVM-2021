@@ -37,16 +37,8 @@ fun DetailAppBar(
                 color = "#2F2E32".toColor(),
                 modifier = Modifier
                     .weight(1f)
-                    .wrapContentWidth()
                     .align(Alignment.CenterVertically)
             )
-
-            IconButton(onClick = onSharedClick) {
-                Icon(
-                    imageVector = Icons.Filled.Share,
-                    contentDescription = null
-                )
-            }
         }
     }
 }
