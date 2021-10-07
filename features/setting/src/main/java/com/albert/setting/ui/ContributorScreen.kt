@@ -1,4 +1,4 @@
-package com.albert.setting
+package com.albert.setting.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.albert.setting.ui.SettingAppBar
 import com.albert.setting.ui.compose.NetworkImage
 import com.albert.shared.model.User
 import com.albert.core_ui_compose.util.toColor

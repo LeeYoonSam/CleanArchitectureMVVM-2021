@@ -36,8 +36,6 @@ internal fun SettingAppBar(
                     content = navigationIcon
                 )
             }
-
-            Spacer(modifier = NavigationIconModifier)
         } else {
             Spacer(modifier = AppBarHorizontalModifier)
         }

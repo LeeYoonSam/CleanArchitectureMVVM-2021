@@ -12,10 +12,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.albert.setting.ContributorScreen
 import com.albert.setting.Route
 import com.albert.setting.ScreenAction
-import com.albert.setting.SettingScreen
 import com.albert.core_ui_compose.layout.FullScreenLoading
 import com.albert.core_ui_compose.layout.LoadingContent
 import com.albert.core_ui_compose.setThemeContent
