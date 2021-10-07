@@ -15,5 +15,6 @@ data class Session(
     val tags: List<Tag>,
     val room: Room,
     val startTime: LocalDateTime,
-    val endTime: LocalDateTime
+    val endTime: LocalDateTime,
+    val contentLink: String? = null
 )
