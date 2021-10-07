@@ -33,7 +33,7 @@ class SettingFragment : Fragment() {
 
 @OptIn(ExperimentalStdlibApi::class)
 @Composable
-fun SettingContainer(
+private fun SettingContainer(
     viewModel: SettingViewModel = viewModel()
 ) {
     val navController = rememberNavController()

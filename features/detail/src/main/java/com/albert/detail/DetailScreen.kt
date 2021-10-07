@@ -26,7 +26,7 @@ import com.albert.core_ui_compose.util.toColor
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
-fun DetailScreen(
+internal fun DetailScreen(
     session: Session,
     modifier: Modifier = Modifier
 ) {
@@ -84,7 +84,7 @@ fun DetailScreen(
 }
 
 @Composable
-fun ProfilesInfo(
+private fun ProfilesInfo(
     modifier: Modifier = Modifier,
     speakers: List<User>
 ) {
@@ -99,7 +99,7 @@ fun ProfilesInfo(
 }
 
 @Composable
-fun ProfileImages(speakers: List<User>) {
+private fun ProfileImages(speakers: List<User>) {
     if (speakers.isEmpty()) return
 
     ProfileOverLayout {
@@ -126,7 +126,7 @@ fun ProfileImages(speakers: List<User>) {
 }
 
 @Composable
-fun ProfileOverLayout(
+private fun ProfileOverLayout(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {

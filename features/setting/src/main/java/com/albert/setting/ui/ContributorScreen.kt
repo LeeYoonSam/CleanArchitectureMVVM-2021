@@ -100,7 +100,7 @@ private fun ContributorProfile(
 @OptIn(ExperimentalStdlibApi::class)
 @Preview(heightDp = 250)
 @Composable
-fun ContributorsProfilePreview() {
+private fun ContributorsProfilePreview() {
     val list = buildList {
         repeat(5) {
             add(User("Droid Kngiths 2021", ""))
@@ -113,7 +113,7 @@ fun ContributorsProfilePreview() {
 
 @Preview(widthDp = 150, heightDp = 150)
 @Composable
-fun ContributorProfilePreview() {
+private fun ContributorProfilePreview() {
     Surface {
         ContributorProfile(
             user = User("Droid Kngiths 2021", "")
