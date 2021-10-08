@@ -5,9 +5,9 @@ import androidx.lifecycle.liveData
 import com.albert.domain.usecase.contributor.GetContributorsUseCase
 import com.albert.domain.usecase.session.GetSessionsUseCase
 import com.albert.domain.usecase.staff.GetStaffUseCase
-import com.albert.shared.result.data
 import com.albert.core_ui_compose.extension.toUiState
 import com.albert.core_ui_compose.state.UiState
+import com.albert.shared.result.map
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,12 +19,16 @@ class SettingViewModel @Inject constructor(
 ) : ViewModel() {
     val speakers = liveData {
         emit(UiState.loading())
-        val users = getSessionsUseCase().data.orEmpty()
-            .flatMap {
-                it.speakers
-            }.distinct()
-            .sortedBy { it.name }
-        emit(UiState.success(users))
+
+        emit(
+            getSessionsUseCase()
+                .map { list ->
+                    list.flatMap {
+                        it.speakers
+                    }.distinct()
+                        .sortedBy { it.name }
+                }.toUiState()
+        )
     }
 
     val staff = liveData {
@@ -34,13 +38,14 @@ class SettingViewModel @Inject constructor(
 
     val contributors = liveData {
         emit(UiState.loading())
-        val users = getContributorsUseCase(
-            GetContributorsUseCase.Param(
-                "LeeYoonSam",
-                "CleanArchitectureMVVM-2021",
-                1
-            )
-        ).data.orEmpty()
-        emit(UiState.success(users))
+        emit(
+            getContributorsUseCase(
+                GetContributorsUseCase.Param(
+                    "LeeYoonSam",
+                    "CleanArchitectureMVVM-2021",
+                    1
+                )
+            ).toUiState()
+        )
     }
 }
