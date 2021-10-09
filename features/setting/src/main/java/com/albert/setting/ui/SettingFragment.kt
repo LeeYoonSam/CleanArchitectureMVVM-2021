@@ -10,6 +10,7 @@ import com.albert.core.ui.startActivity
 import com.albert.setting.Route
 import com.albert.setting.ScreenAction
 import com.albert.core_ui_compose.setThemeContent
+import com.albert.setting.ui.detail.SettingDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +28,7 @@ class SettingFragment : Fragment() {
                     ScreenAction.Staff -> Route.Staff
                 }
 
-                context.startActivity<SettingNavigationActivity>(
+                context.startActivity<SettingDetailActivity>(
                     "type" to route
                 )
             }
