@@ -8,8 +8,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,37 +24,20 @@ import com.albert.core_ui_compose.util.toColor
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun SpeakerScreen(
-    speakers: List<User>,
-    onBackAction: () -> Unit
+    modifier: Modifier = Modifier,
+    speakers: List<User>
 ) {
-    Scaffold(
-        topBar = {
-            SettingAppBar(
-                title = "Speaker",
-                navigationIcon = {
-                    IconButton(onClick = onBackAction) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = null
-                        )
-                    }
-                }
+    LazyVerticalGrid(
+        cells = GridCells.Fixed(2),
+        modifier = modifier,
+        contentPadding = PaddingValues(10.dp)
+    ) {
+        items(speakers) { user ->
+            SpeakerProfile(
+                modifier = Modifier.padding(10.dp),
+                user = user
             )
         }
-    ) { innerPadding ->
-        LazyVerticalGrid(
-            cells = GridCells.Fixed(2),
-            modifier = Modifier.padding(innerPadding),
-            contentPadding = PaddingValues(10.dp)
-        ) {
-            items(speakers) { user ->
-                SpeakerProfile(
-                    modifier = Modifier.padding(10.dp),
-                    user = user
-                )
-            }
-        }
-
     }
 }
 

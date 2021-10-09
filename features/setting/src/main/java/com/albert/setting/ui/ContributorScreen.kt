@@ -8,8 +8,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,35 +24,19 @@ import com.albert.core_ui_compose.util.toColor
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun ContributorScreen(
-    users: List<User>,
-    onBackAction: () -> Unit
+    modifier: Modifier = Modifier,
+    contributors: List<User>
 ) {
-    Scaffold(
-        topBar = {
-            SettingAppBar(
-                title = "Contributors",
-                navigationIcon = {
-                    IconButton(onClick = onBackAction) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = null
-                        )
-                    }
-                }
+    LazyVerticalGrid(
+        cells = GridCells.Fixed(3),
+        modifier = modifier,
+        contentPadding = PaddingValues(10.dp)
+    ) {
+        items(contributors) { contributor ->
+            ContributorProfile(
+                modifier = Modifier.padding(8.dp),
+                contributor = contributor
             )
-        }
-    ) { innerPadding ->
-        LazyVerticalGrid(
-            cells = GridCells.Fixed(3),
-            modifier = Modifier.padding(innerPadding),
-            contentPadding = PaddingValues(10.dp)
-        ) {
-            items(users) { contributor ->
-                ContributorProfile(
-                    modifier = Modifier.padding(8.dp),
-                    user = contributor
-                )
-            }
         }
     }
 }
@@ -62,7 +44,7 @@ internal fun ContributorScreen(
 @Composable
 private fun ContributorProfile(
     modifier: Modifier = Modifier,
-    user: User
+    contributor: User
 ) {
     Card(
         modifier = modifier.aspectRatio(1f),
@@ -75,7 +57,7 @@ private fun ContributorProfile(
             verticalArrangement = Arrangement.Center
         ) {
             NetworkImage(
-                imageUrl = user.photoUrl,
+                imageUrl = contributor.photoUrl,
                 nonSuccessTintColor = "#43B1B3".toColor(),
                 modifier = Modifier
                     .weight(1f)
@@ -85,7 +67,7 @@ private fun ContributorProfile(
             
             Spacer(modifier = Modifier.height(10.dp))
             Text(
-                text = user.name,
+                text = contributor.name,
                 color = "#2F2E32".toColor(),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
@@ -107,7 +89,7 @@ private fun ContributorsProfilePreview() {
         }
     }
     Surface {
-        ContributorScreen(list) {}
+        ContributorScreen(contributors = list)
     }
 }
 
@@ -116,7 +98,7 @@ private fun ContributorsProfilePreview() {
 private fun ContributorProfilePreview() {
     Surface {
         ContributorProfile(
-            user = User("Droid Kngiths 2021", "")
+            contributor = User("Droid Kngiths 2021", "")
         )
     }
 }

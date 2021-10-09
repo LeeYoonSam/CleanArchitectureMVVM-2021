@@ -32,6 +32,9 @@
         <entry key="../../../../layout/compose-model-1633664784952.xml" value="0.1" />
         <entry key="../../../../layout/compose-model-1633683150647.xml" value="0.1320201173512154" />
         <entry key="../../../../layout/compose-model-1633742920648.xml" value="1.5723684210526316" />
+        <entry key="../../../../layout/compose-model-1633746194959.xml" value="0.2679932260795936" />
+        <entry key="../../../../layout/compose-model-1633746247545.xml" value="0.1320201173512154" />
+        <entry key="../../../../layout/compose-model-1633747027876.xml" value="0.2679932260795936" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.303125" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.303125" />
         <entry key="features/detail/src/main/res/drawable/ic_android_92b9e9_24.xml" value="0.288" />
@@ -44,6 +47,7 @@
         <entry key="features/schedule/src/main/res/drawable/ic_error_black_24.xml" value="0.239" />
         <entry key="features/schedule/src/main/res/layout/fragment_schedule.xml" value="0.303125" />
         <entry key="features/setting/src/main/res/drawable/ic_black_android_24.xml" value="0.239" />
+        <entry key="features/setting/src/main/res/drawable/ic_launcher_background.xml" value="0.239" />
         <entry key="features/setting/src/main/res/layout/fragment_home.xml" value="0.303125" />
         <entry key="features/setting/src/main/res/layout/fragment_setting.xml" value="0.24094202898550723" />
       </map>
