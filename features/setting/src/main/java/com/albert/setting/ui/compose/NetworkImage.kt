@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
-import com.albert.features.setting.R
+import com.albert.setting.R
 
 @Composable
 internal fun NetworkImage(
