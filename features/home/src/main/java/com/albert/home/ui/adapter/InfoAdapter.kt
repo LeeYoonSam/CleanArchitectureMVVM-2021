@@ -6,8 +6,10 @@ import com.albert.home.util.DataBindingViewHolder
 import com.albert.home.util.recyclerview.ItemDiffCallback
 import com.albert.home.util.recyclerview.ListBindingAdapter
 import com.albert.shared.model.Sponsor
+import kotlinx.coroutines.CoroutineScope
 
 internal class InfoAdapter(
+    private val coroutineScope: CoroutineScope,
     sponsors: List<Sponsor>,
     private val itemHandler: ItemHandler
 ) : ListBindingAdapter<InfoItem>(ItemDiffCallback(
@@ -30,7 +32,10 @@ internal class InfoAdapter(
 
     override fun viewBindViewHolder(holder: DataBindingViewHolder<InfoItem>, position: Int) {
         super.viewBindViewHolder(holder, position)
-        holder.binding.setVariable(BR.itemHandler, sponsorItemHandler)
+        holder.binding.run {
+            setVariable(BR.itemHandler, sponsorItemHandler)
+            setVariable(BR.coroutineScope, coroutineScope)
+        }
     }
 
     interface ItemHandler {

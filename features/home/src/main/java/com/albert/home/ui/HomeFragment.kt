@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ConcatAdapter
 import com.albert.features.home.R
 import com.albert.features.home.databinding.FragmentHomeBinding
@@ -30,7 +31,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate<FragmentHomeBinding?>(inflater, R.layout.fragment_home, container, false).apply {
+            lifecycleOwner = viewLifecycleOwner
+        }
         return binding.root
     }
 
@@ -40,7 +43,7 @@ class HomeFragment : Fragment() {
         viewModel.homeInfo.observe(viewLifecycleOwner) {
             val concatAdapter = ConcatAdapter(
                 HeaderAdapter(),
-                InfoAdapter(it.sponsors, object : InfoAdapter.ItemHandler {
+                InfoAdapter(lifecycleScope, it.sponsors, object : InfoAdapter.ItemHandler {
                     override fun clickSponsor(sponsor: Sponsor) {
                         ActivityHelper.startActionView(requireContext(), sponsor.homepage)
                     }
