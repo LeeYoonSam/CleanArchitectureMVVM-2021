@@ -51,7 +51,7 @@ dependencies {
     implementation project(path: ':shared')
 
     implementation(Dep.AndroidX.core)
-    implementation(Dep.AndroidX.activity)
+    implementation(Dep.AndroidX.Activity.activity)
     implementation(Dep.AndroidX.Lifecycle.viewModel)
 
     implementation Dep.Compose.ui

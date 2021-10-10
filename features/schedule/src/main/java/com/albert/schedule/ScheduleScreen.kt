@@ -29,8 +29,8 @@ internal fun ScheduleScreen(
     }
 
     val rooms = groupingSession.keys.toList()
-    val pagerState = rememberPagerState(pageCount = rooms.size)
-    
+    val pagerState = rememberPagerState()
+
     Column(Modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.padding(24.dp),
@@ -52,9 +52,9 @@ internal fun ScheduleScreen(
         }
 
         HorizontalPager(
+            count = groupingSession.size,
             state = pagerState,
             modifier = Modifier
-                .weight(1f)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.Top
         ) { page ->
