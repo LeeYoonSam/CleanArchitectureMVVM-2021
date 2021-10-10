@@ -24,11 +24,7 @@ fun TextView.bindEventTitle(date: LocalDate) {
     text = "${date.year}년 드로이드 나이츠"
 }
 
-@BindingAdapter("bindEventDate", "bindEndEvent")
-fun TextView.bindEventDate(date: LocalDate, isEndEvent: Boolean) {
-    text = if (isEndEvent) {
-        "${date.year}년 ${date.monthNumber}월 ${date.dayOfMonth}일"
-    } else {
-        "${date.year}년 ${date.monthNumber}월 예정"
-    }
+@BindingAdapter("bindEventDate")
+fun TextView.bindEventDate(date: LocalDate) {
+    text = "${date.year}년 ${date.monthNumber}월 ${date.dayOfMonth}일"
 }
