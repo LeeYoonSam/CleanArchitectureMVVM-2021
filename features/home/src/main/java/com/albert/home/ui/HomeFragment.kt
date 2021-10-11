@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
 
         viewModel.homeInfo.observe(viewLifecycleOwner) {
             val concatAdapter = ConcatAdapter(
+                ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build(),
                 HeaderAdapter(),
                 InfoAdapter(lifecycleScope, it.sponsors, object : InfoAdapter.ItemHandler {
                     override fun clickSponsor(sponsor: Sponsor) {
@@ -55,6 +56,7 @@ class HomeFragment : Fragment() {
                 })
             )
             binding.recyclerView.adapter = concatAdapter
+            binding.recyclerView.addItemDecoration(EventItemDecoration(view.context))
         }
     }
 }

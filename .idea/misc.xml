@@ -39,6 +39,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.303125" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.303125" />
         <entry key="features/detail/src/main/res/drawable/ic_android_92b9e9_24.xml" value="0.288" />
+        <entry key="features/home/src/main/res/drawable/event_list_divider.xml" value="0.239" />
         <entry key="features/home/src/main/res/drawable/selector_event_icon.xml" value="0.239" />
         <entry key="features/home/src/main/res/layout/fragment_home.xml" value="0.303125" />
         <entry key="features/home/src/main/res/layout/item_event.xml" value="0.303125" />
