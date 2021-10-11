@@ -45,6 +45,7 @@ dependencies {
     implementation Dep.timber
     implementation Dep.inject
 
+    testImplementation project(path: ':test-shared')
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.junitExt
     androidTestImplementation Dep.Test.espresso
