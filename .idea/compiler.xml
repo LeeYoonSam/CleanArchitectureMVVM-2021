@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="CleanArchitectureMVVM-2021.app" target="11" />
+      <module name="CleanArchitectureMVVM-2021.buildSrc" target="11" />
+      <module name="CleanArchitectureMVVM-2021.data" target="11" />
+      <module name="CleanArchitectureMVVM-2021.domain" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.core-ui" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.core-ui-compose" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.detail" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.home" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.schedule" target="11" />
+      <module name="CleanArchitectureMVVM-2021.features.setting" target="11" />
+      <module name="CleanArchitectureMVVM-2021.navigator" target="11" />
+      <module name="CleanArchitectureMVVM-2021.shared" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
