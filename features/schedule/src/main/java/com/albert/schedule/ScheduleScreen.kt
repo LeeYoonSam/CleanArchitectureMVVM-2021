@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.albert.shared.model.Session
 import com.albert.core_ui_compose.util.toColor
+import com.albert.shared.Room
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
@@ -28,7 +29,7 @@ internal fun ScheduleScreen(
         it.room
     }
 
-    val rooms = groupingSession.keys.toList()
+    val rooms =  sortedRoomList(groupingSession)
     val pagerState = rememberPagerState()
 
     Column(Modifier.fillMaxSize()) {
@@ -83,4 +84,18 @@ private fun Schedules(
             )
         }
     }
+}
+
+private fun sortedRoomList(groupingSession: Map<Room, List<Session>>): List<Room> {
+    val sortedRoomList = mutableListOf<Room>()
+    if (groupingSession.containsKey(Room.Track1)) {
+        sortedRoomList.add(Room.Track1)
+    }
+    if (groupingSession.containsKey(Room.Track2)) {
+        sortedRoomList.add(Room.Track2)
+    }
+    if (groupingSession.containsKey(Room.Etc)) {
+        sortedRoomList.add(Room.Etc)
+    }
+    return sortedRoomList
 }
