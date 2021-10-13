@@ -1,7 +1,4 @@
-import dependencies.Dep
-
 plugins {
-    id("java-library")
     id("kotlin")
 }
 

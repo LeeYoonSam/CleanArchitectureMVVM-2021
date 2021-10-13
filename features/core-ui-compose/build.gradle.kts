@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
 }
 
 android {
@@ -16,10 +16,12 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile(
+                    "proguard-android-optimize.txt"
+                ),
                 "proguard-rules.pro"
             )
         }
@@ -28,13 +30,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Dep.Compose.version
     }
 }
 
 dependencies {
-    implementation (project(":shared"))
+    implementation(project(":shared"))
+
+    implementation(Dep.AndroidX.core)
+    implementation(Dep.AndroidX.Activity.compose)
+    implementation(Dep.AndroidX.fragment)
+
+    implementation(Dep.Compose.ui)
+    implementation(Dep.Compose.material)
+    implementation(Dep.Compose.tooling)
+    implementation(Dep.Compose.themeAdapter)
+
+    implementation(Dep.timber)
 
     testImplementation(Dep.Test.junit)
     androidTestImplementation(Dep.Test.junitExt)

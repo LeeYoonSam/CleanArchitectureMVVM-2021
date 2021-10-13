@@ -1,11 +1,11 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlinx-serialization")
+    kotlin("android")
 }
 
 android {
     compileSdk = Versions.compileSdk
+    buildToolsVersion = Versions.buildTools
 
     defaultConfig {
         minSdk = Versions.minSdk
@@ -16,10 +16,12 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile(
+                    "proguard-android-optimize.txt"
+                ),
                 "proguard-rules.pro"
             )
         }
@@ -28,15 +30,25 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
+    implementation(project(":shared"))
+    implementation(project(":data"))
+
+    implementation(Dep.AndroidX.core)
+    implementation(Dep.AndroidX.appcompat)
+    implementation(Dep.AndroidX.material)
+
     implementation(Dep.inject)
 
     implementation(Dep.Kotlin.coroutine)
     implementation(Dep.Kotlin.dateTime)
-    implementation(Dep.Kotlin.serialization)
+
+    implementation(Dep.timber)
+
+    testImplementation(project(":test-shared"))
+    testImplementation(Dep.Test.junit)
+    androidTestImplementation(Dep.Test.junitExt)
+    androidTestImplementation(Dep.Test.espresso)
 }
