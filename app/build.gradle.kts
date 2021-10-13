@@ -6,13 +6,8 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.compileSdk
-    buildToolsVersion = Versions.buildTools
-
     defaultConfig {
         applicationId = "com.albert.architecture"
-        minSdk = Versions.minSdk
-        targetSdk = Versions.targetSdk
         versionCode = Versions.versionCode
         versionName = Versions.versionName
 
@@ -30,10 +25,7 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true
