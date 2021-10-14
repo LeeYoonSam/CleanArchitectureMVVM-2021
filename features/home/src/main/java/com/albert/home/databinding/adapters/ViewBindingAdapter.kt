@@ -1,6 +1,5 @@
 package com.albert.home.databinding.adapters
 
-import android.util.Log
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,16 +46,6 @@ private tailrec suspend fun RecyclerView.launchAutoScroll() {
 
     delay(25L)
     launchAutoScroll()
-}
-
-@BindingAdapter("sponsors", "itemHandler")
-fun RecyclerView.bindSponsors(items: List<Sponsor>?, itemHandler: SponsorAdapter.ItemHandler) {
-    clearItemDecoration()
-
-    if (items?.isNotEmpty() == true) {
-        adapter = SponsorAdapter(items, itemHandler)
-        addItemDecoration(SponsorItemDecoration())
-    }
 }
 
 @BindingAdapter("eventTitle")

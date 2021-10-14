@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.albert.core.ui.dp2px
 
 class SponsorItemDecoration: RecyclerView.ItemDecoration() {
-    private val edgeSize = 16.dp2px()
-    private val middleSize = 10.dp2px()
+    private val decorationSize = 10.dp2px()
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -17,23 +16,9 @@ class SponsorItemDecoration: RecyclerView.ItemDecoration() {
     ) {
         super.getItemOffsets(outRect, view, parent, state)
 
-        val adapter = parent.adapter?: return
-
-        val count = adapter.itemCount
-
-        when(parent.getChildAdapterPosition(view)) {
-            0 -> {
-                outRect.left = edgeSize
-                outRect.left = middleSize
-            }
-            count - 1 -> {
-                outRect.left = middleSize
-                outRect.right = middleSize
-            }
-            else-> {
-                outRect.left = middleSize
-                outRect.right = edgeSize
-            }
+        with(outRect) {
+            left = decorationSize
+            right = decorationSize
         }
     }
 }

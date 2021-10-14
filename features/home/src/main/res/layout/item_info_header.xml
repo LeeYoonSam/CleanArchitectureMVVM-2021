@@ -9,14 +9,6 @@
             name="item"
             type="com.albert.home.ui.adapter.InfoItem" />
 
-        <variable
-            name="itemHandler"
-            type="com.albert.home.ui.adapter.SponsorAdapter.ItemHandler" />
-
-        <variable
-            name="coroutineScope"
-            type="kotlinx.coroutines.CoroutineScope" />
-
     </data>
 
     <androidx.cardview.widget.CardView
@@ -104,11 +96,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvContent"
-                app:coroutineScope="@{coroutineScope}"
-                app:sponsors="@{item.sponsors}"
-                app:itemHandler="@{itemHandler}"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_info_sponsor" />
+                tools:itemCount="4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

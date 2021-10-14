@@ -1,34 +1,73 @@
 package com.albert.home.ui.adapter
 
-import com.albert.features.home.BR
-import com.albert.features.home.R
-import com.albert.home.util.DataBindingViewHolder
+import android.view.ViewGroup
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
+import coil.annotation.ExperimentalCoilApi
+import com.albert.home.compose.adapters.ComposeListAdapter
+import com.albert.home.compose.adapters.ComposeViewHolder
+import com.albert.home.compose.view.NetworkImage
 import com.albert.home.util.recyclerview.ItemDiffCallback
-import com.albert.home.util.recyclerview.ListBindingAdapter
 import com.albert.shared.model.Sponsor
 
 class SponsorAdapter(
     sponsors: List<Sponsor>,
-    private val itemHandler: ItemHandler
-) : ListBindingAdapter<Sponsor>(ItemDiffCallback(
+    private val itemHandler: ItemHandler,
+) : ComposeListAdapter<Sponsor, SponsorAdapter.SponsorViewHolder>(ItemDiffCallback(
     onItemsTheSame = { old, new -> old.name == new.name },
     onContentsTheSame = { old, new -> old == new }
 )) {
 
     init {
-        submitList(sponsors)
+        submitList(sponsors + sponsors)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return R.layout.item_info_sponsor
-    }
+    class SponsorViewHolder(
+        composeView: ComposeView,
+        private val itemHandler: ItemHandler
+    ) : ComposeViewHolder<Sponsor>(composeView) {
 
-    override fun viewBindViewHolder(holder: DataBindingViewHolder<Sponsor>, position: Int) {
-        super.viewBindViewHolder(holder, position)
-        holder.binding.setVariable(BR.itemHandler, itemHandler)
+        @Composable
+        override fun ViewHolder(input: Sponsor) {
+            SponsorItem(input, itemHandler)
+        }
     }
 
     interface ItemHandler {
         fun clickSponsor(sponsor: Sponsor)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SponsorViewHolder {
+        return SponsorViewHolder(ComposeView(parent.context), itemHandler)
+    }
+
+    override fun onBindViewHolder(holder: SponsorViewHolder, position: Int) {
+        holder.onBind(getItem(position))
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun SponsorItem(
+    sponsor: Sponsor,
+    itemHandler: SponsorAdapter.ItemHandler
+) {
+    Column(
+        Modifier.wrapContentHeight()
+            .padding(vertical = 10.dp)
+    ) {
+        NetworkImage(
+            sponsor.photoUrl,
+            Color(0xFF43B1B3),
+            Modifier.height(22.dp).width(52.dp)
+                .clickable {
+                    itemHandler.clickSponsor(sponsor)
+                }
+        )
     }
 }

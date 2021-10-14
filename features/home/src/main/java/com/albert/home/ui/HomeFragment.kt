@@ -44,16 +44,10 @@ class HomeFragment : Fragment() {
             val concatAdapter = ConcatAdapter(
                 ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build(),
                 HeaderAdapter(),
-                InfoAdapter(lifecycleScope, it.sponsors, object : InfoAdapter.ItemHandler {
-                    override fun clickSponsor(sponsor: Sponsor) {
-                        requireContext().startOpenUrl(sponsor.homepage)
-                    }
-                }),
-                EventAdapter(it.events, object : EventAdapter.ItemHandler {
-                    override fun clickEvent(event: Event) {
-                        requireContext().startOpenUrl(event.url)
-                    }
-                })
+                InfoAdapter(it.sponsors) { sponsor ->
+                    requireContext().startOpenUrl(sponsor.homepage)
+                },
+                EventAdapter(it.events) { event -> requireContext().startOpenUrl(event.url) }
             )
             binding.recyclerView.adapter = concatAdapter
             binding.recyclerView.addItemDecoration(EventItemDecoration(view.context))
