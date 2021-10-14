@@ -64,7 +64,8 @@ fun SponsorItem(
         NetworkImage(
             sponsor.photoUrl,
             Color(0xFF43B1B3),
-            Modifier.height(22.dp).width(52.dp)
+            Modifier
+                .height(22.dp).width(52.dp)
                 .clickable {
                     itemHandler.clickSponsor(sponsor)
                 }

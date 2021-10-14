@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.albert.features.home.R
@@ -26,10 +28,15 @@ internal fun NetworkImage(
         builder = builder,
     )
 
+    val colorFilter = when (painter.state) {
+        is ImagePainter.State.Success -> null
+        else  -> ColorFilter.tint(nonSuccessTintColor)
+    }
+
     Image(
         modifier = modifier,
-        // painter = painterResource(R.drawable.ic_android_white),
         painter = painter,
+        colorFilter = colorFilter,
         contentDescription = null
     )
 }
