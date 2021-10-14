@@ -16,7 +16,7 @@ import com.albert.home.ui.adapter.HeaderAdapter
 import com.albert.home.ui.adapter.InfoAdapter
 import com.albert.shared.model.Event
 import com.albert.shared.model.Sponsor
-import com.albert.core.ui.ActivityHelper
+import com.albert.home.util.startOpenUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,12 +46,12 @@ class HomeFragment : Fragment() {
                 HeaderAdapter(),
                 InfoAdapter(lifecycleScope, it.sponsors, object : InfoAdapter.ItemHandler {
                     override fun clickSponsor(sponsor: Sponsor) {
-                        ActivityHelper.startActionView(requireContext(), sponsor.homepage)
+                        requireContext().startOpenUrl(sponsor.homepage)
                     }
                 }),
                 EventAdapter(it.events, object : EventAdapter.ItemHandler {
                     override fun clickEvent(event: Event) {
-                        ActivityHelper.startActionView(requireContext(), event.url)
+                        requireContext().startOpenUrl(event.url)
                     }
                 })
             )
